@@ -1,0 +1,4 @@
+#generate new ssh key uisng git bash
+ssh-keygen -t rsa -b 4096 -C " i.musabeh@imtilakgroup.com"
+#show ssh key
+cat ~/.ssh/id_rsa.pub
