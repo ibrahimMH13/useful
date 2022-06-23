@@ -34,3 +34,8 @@ SELECT CASE
     END
 FROM BST
 ORDER BY N ASC
+
+#
+#Query a count of the number of cities in CITY having a Population larger than 10000.
+#
+SELECT count(population) from city where population > 100000
