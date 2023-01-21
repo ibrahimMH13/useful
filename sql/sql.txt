@@ -1,0 +1,41 @@
+#use when case
+SELECT 
+    CASE
+        WHEN
+            (B+A <=A) OR (A+C <=B) OR (A+B <=C)
+                THEN "Not A Triangle"
+        WHEN
+            (A = B) AND (A = C)
+                THEN "Equilateral"
+        WHEN
+            (A=B) OR (B=C) OR (A=C)
+                THEN "Isosceles"
+        ELSE
+              "Scalene"
+    END
+FROM TRIANGLES;
+
+#use rank and over to order
+SELECT
+    MIN(CASE WHEN Occupation = 'Doctor' THEN Name END),
+    MIN(CASE WHEN Occupation = 'Professor' THEN Name END),
+    MIN(CASE WHEN Occupation = 'Singer' THEN Name END),
+    MIN(CASE WHEN Occupation = 'Actor' THEN Name END)
+FROM
+    (SELECT Name, Occupation,
+        RANK() OVER(PARTITION BY Occupation ORDER BY Name) AS R
+    FROM OCCUPATIONS) AS O
+GROUP BY R;
+#select if the node is root ,inner or leaf
+SELECT CASE
+    WHEN P IS NULL THEN CONCAT(N, ' Root')
+    WHEN N IN (SELECT DISTINCT P FROM BST) THEN CONCAT(N, ' Inner')
+    ELSE CONCAT(N, ' Leaf')
+    END
+FROM BST
+ORDER BY N ASC
+
+#
+#Query a count of the number of cities in CITY having a Population larger than 10000.
+#
+SELECT count(population) from city where population > 100000

@@ -1,0 +1,26 @@
+git init
+git show [has2..has1,--staged]  
+git diff [has2..has1]  
+git status
+git 
+git restore # from staging
+git log [--oneline,--graph] #show loign
+git reflog
+git add ./* # add to index/staging
+git rm --cached # remove from index/staging
+git config global/system
+git commit -m
+git reset HEAD[~n]#move back to number of steps
+git reset HEAD@{n} # fastforward we can get it from reflog command
+git commit --amend # change the commint text
+
+--staged # between index/staging and rep
+--restore # from index/staging to work tree
+git switch branchName # swtiching to branch
+git checkout branchName # switching to branch
+git branch # get current branch
+git branch name # create new branch
+git merge branchName # make merge also should switching to main branch before make it
+git branch --merged # show branchs have been merged with this branch
+git branch -d branchName # delete branch
+git config --global color.ui true
